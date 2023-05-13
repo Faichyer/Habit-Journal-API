@@ -3,10 +3,13 @@ import {
   Controller,
   Delete,
   Get,
+  NotFoundException,
   Param,
+  ParseIntPipe,
   Post,
   Put,
   Query,
+  ValidationPipe,
 } from '@nestjs/common';
 import { CreateHabitDto } from './dto/create-habit.dto';
 import { UpdateHabitDto } from './dto/update-habit.dto';
@@ -22,22 +25,29 @@ export class HabitsController {
   }
 
   @Get(':id')
-  getSingleHabit(@Param('id') id: string) {
-    return this.habitsService.getOneHabit(Number(id));
+  getSingleHabit(@Param('id', ParseIntPipe) id: number) {
+    try {
+      return this.habitsService.getOneHabit(id);
+    } catch (err) {
+      throw new NotFoundException();
+    }
   }
 
   @Post()
-  createHabit(@Body() createHabitDto: CreateHabitDto) {
+  createHabit(@Body(new ValidationPipe()) createHabitDto: CreateHabitDto) {
     return this.habitsService.createHabit(createHabitDto);
   }
 
   @Put(':id')
-  updateHabit(@Param('id') id: string, @Body() updateHabitDto: UpdateHabitDto) {
-    return this.habitsService.updateHabit(Number(id), updateHabitDto);
+  updateHabit(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateHabitDto: UpdateHabitDto,
+  ) {
+    return this.habitsService.updateHabit(id, updateHabitDto);
   }
 
   @Delete(':id')
-  deleteHabit(@Param('id') id: string) {
-    return this.habitsService.deleteHabit(Number(id));
+  deleteHabit(@Param('id', ParseIntPipe) id: number) {
+    return this.habitsService.deleteHabit(id);
   }
 }

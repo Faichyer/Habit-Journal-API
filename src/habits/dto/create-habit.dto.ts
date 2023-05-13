@@ -1,5 +1,8 @@
+import { MinLength } from 'class-validator';
+
 export class CreateHabitDto {
   id: number;
+  @MinLength(3)
   cardName: string;
   cardImg: string;
   description: string;
