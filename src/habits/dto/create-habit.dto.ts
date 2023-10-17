@@ -1,16 +1,47 @@
-import { MinLength } from 'class-validator';
-
+import {
+  MinLength,
+  IsEmail,
+  IsString,
+  IsNotEmpty,
+  MaxLength,
+  IsNumber,
+  IsDate,
+  IsBoolean,
+} from 'class-validator';
 export class CreateHabitDto {
-  id: number;
+  public id: number;
+
   @MinLength(3)
-  cardName: string;
-  cardImg: string;
-  description: string;
-  tracks: CreateTrackDto[];
+  @IsString()
+  public cardName: string;
+
+  @IsString()
+  public cardImg: string;
+
+  @IsString()
+  public description: string;
+
+  @IsNumber()
+  public userId: number;
+
+  public habitsRecords: CreateHabitsRecordDto[];
+}
+
+export class CreateHabitsRecordDto {
+  public id: number;
+
+  @IsDate()
+  public date: Date;
+
+  public tracks: CreateTrackDto[];
 }
 
 export class CreateTrackDto {
-  id: number;
-  trackName: string;
-  completed: boolean;
+  public id: number;
+
+  @IsString()
+  public trackName: string;
+
+  @IsBoolean()
+  public completed: boolean;
 }
