@@ -7,6 +7,7 @@ import {
   IsNumber,
   IsDate,
   IsBoolean,
+  IsUUID,
 } from 'class-validator';
 export class CreateHabitDto {
   public id: number;
@@ -22,9 +23,16 @@ export class CreateHabitDto {
   public description: string;
 
   @IsNumber()
-  public userId: number;
+  @IsUUID()
+  public userId: string;
 
   public habitsRecords: CreateHabitsRecordDto[];
+
+  @IsDate()
+  public createdAt: Date;
+
+  @IsDate()
+  public updatedAt: Date;
 }
 
 export class CreateHabitsRecordDto {
@@ -43,5 +51,5 @@ export class CreateTrackDto {
   public trackName: string;
 
   @IsBoolean()
-  public completed: boolean;
+  public complete: boolean;
 }
