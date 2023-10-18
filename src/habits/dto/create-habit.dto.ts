@@ -24,15 +24,15 @@ export class CreateHabitDto {
 
   @IsNumber()
   @IsUUID()
-  public userId: string;
+  public userId?: string;
 
   public habitsRecords: CreateHabitsRecordDto[];
 
   @IsDate()
-  public createdAt: Date;
+  public createdAt?: Date;
 
   @IsDate()
-  public updatedAt: Date;
+  public updatedAt?: Date;
 }
 
 export class CreateHabitsRecordDto {
