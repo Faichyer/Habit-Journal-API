@@ -12,10 +12,34 @@ export class HabitsService {
         'https://media.self.com/photos/6398b36c72eb56f726777d06/4:3/w_2560%2Cc_limit/weekly-workout-schedule.jpeg',
       description:
         'Try to go to gym when you can bro, and eat well accordingly to the main objective',
-      tracks: [
-        { id: 1, trackName: 'Go to Gym', completed: true },
-        { id: 2, trackName: 'Sleep early', completed: true },
-        { id: 3, trackName: 'Eat well', completed: true },
+      habitsRecords: [
+        {
+          id: 1,
+          date: new Date('2023-10-17T17:07:42.297Z'),
+          tracks: [
+            { id: 1, trackName: 'Go to Gym', complete: true },
+            { id: 2, trackName: 'Sleep early', complete: true },
+            { id: 3, trackName: 'Eat well', complete: true },
+          ],
+        },
+        {
+          id: 2,
+          date: new Date('2023-10-16T17:07:42.297Z'),
+          tracks: [
+            { id: 1, trackName: 'Go to Gym', complete: true },
+            { id: 2, trackName: 'Sleep early', complete: false },
+            { id: 3, trackName: 'Eat well', complete: true },
+          ],
+        },
+        {
+          id: 3,
+          date: new Date('2023-10-15T17:07:42.297Z'),
+          tracks: [
+            { id: 1, trackName: 'Go to Gym', complete: true },
+            { id: 2, trackName: 'Sleep early', complete: true },
+            { id: 3, trackName: 'Eat well', complete: false },
+          ],
+        },
       ],
     },
     {
@@ -25,12 +49,22 @@ export class HabitsService {
         'https://cdn.shopify.com/s/files/1/0252/6822/4088/products/01_HabitJournal_Front_0d0aa7bd-ecd0-400a-87e1-51b78415aa8a.jpg?crop=center&v=1674232316&width=1296',
       description:
         'This habit is to code a little bit everyday in order to finish this project ASAP',
-      tracks: [
-        { id: 1, trackName: 'Code this shit', completed: true },
+      habitsRecords: [
+        {
+          id: 1,
+          date: new Date('2023-10-17T17:07:42.297Z'),
+          tracks: [
+            { id: 1, trackName: 'Code this shit', complete: true },
+            { id: 2, trackName: 'Learn new technologies', complete: true },
+          ],
+        },
         {
           id: 2,
-          trackName: 'Learn new technologies',
-          completed: true,
+          date: new Date('2023-10-16T17:07:42.297Z'),
+          tracks: [
+            { id: 1, trackName: 'Code this shit', complete: true },
+            { id: 2, trackName: 'Learn new technologies', complete: false },
+          ],
         },
       ],
     },
@@ -41,21 +75,31 @@ export class HabitsService {
         'https://www.myglobalviewpoint.com/wp-content/uploads/2023/01/Things-to-Be-Grateful-For-Featured-Image.jpg',
       description:
         'Be grateful to the persons that helped you during your life bro',
-      tracks: [
+      habitsRecords: [
         {
           id: 1,
-          trackName: 'Thank one person a day',
-          completed: true,
+          date: new Date('2023-10-17T17:07:42.297Z'),
+          tracks: [
+            { id: 1, trackName: 'Thank one person a day', complete: true },
+            { id: 2, trackName: 'Stop this Cat120 stuff', complete: true },
+            { id: 3, trackName: 'Eat well', complete: true },
+          ],
         },
         {
           id: 2,
-          trackName: 'Stop this Cat120 stuff',
-          completed: true,
+          date: new Date('2023-10-16T17:07:42.297Z'),
+          tracks: [
+            { id: 1, trackName: 'Thank one person a day', complete: true },
+            { id: 2, trackName: 'Stop this Cat120 stuff', complete: false },
+          ],
         },
         {
           id: 3,
-          trackName: 'Sleep early everyday',
-          completed: true,
+          date: new Date('2023-10-15T17:07:42.297Z'),
+          tracks: [
+            { id: 1, trackName: 'Thank one person a day', complete: true },
+            { id: 2, trackName: 'Stop this Cat120 stuff', complete: true },
+          ],
         },
       ],
     },
